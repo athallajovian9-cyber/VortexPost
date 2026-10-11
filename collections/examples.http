@@ -1,0 +1,21 @@
+### Get octocat
+GET https://api.github.com/users/octocat
+Accept: application/json
+
+### JSON round trip
+POST https://httpbin.org/json
+Content-Type: application/json
+
+{
+  "tool": "VortexPost",
+  "local": true,
+  "telemetry": false
+}
+
+### Auth header pattern (keep tokens in git-managed env files, never in cloud)
+GET https://httpbin.org/headers
+Authorization: Bearer {{token}}
+X-Client: vortexpost
+
+### Query with variables
+GET https://httpbin.org/get?page={{page}}&size=10
